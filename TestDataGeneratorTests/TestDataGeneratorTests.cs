@@ -23,31 +23,31 @@ namespace TestDataGeneratorTests
             Assert.IsNotNull(tdg);
         }
         [Test]
-        public void GenerateRandonPersonTest()
+        public void GenerateRandomPersonTest()
         {
-            Person person = testDataGenerator.GenerateRandonPerson();
-            TestContext.WriteLine("Name : " + person.firtstName);
-            Assert.IsTrue(person != null && person.firtstName != null);
+            Person person = testDataGenerator.GenerateRandomPerson();
+            TestContext.WriteLine("Name : " + person.firstName);
+            Assert.IsTrue(person != null && person.firstName != null);
  
         }
 
         [Test]
-        public void GenerateRandonPersonInsertedNameTest()
+        public void GenerateRandomPersonInsertedNameTest()
         {
-            Person person = testDataGenerator.GenerateRandonPerson("JulleTestiNimi");
-            TestContext.WriteLine("Name : " + person.firtstName);
-            Assert.IsTrue(person != null && person.firtstName != null);
+            Person person = testDataGenerator.GenerateRandomPerson("JulleTestiNimi");
+            TestContext.WriteLine("Name : " + person.firstName);
+            Assert.IsTrue(person != null && person.firstName != null);
         }
 
         [Test]
 
-        public void GenerateRandonPersonInsertedLastNameTest()
+        public void GenerateRandomPersonInsertedLastNameTest()
         {
             List<Person> people = new List<Person>();
             Person person;
             for (int i = 0; i < 50; i++)
             {
-                person = testDataGenerator.GenerateRandonPerson(lastName: "TestLastName");
+                person = testDataGenerator.GenerateRandomPerson(lastName: "TestLastName");
                 people.Add(person);
                 TestHelpper.PrintPersonData(person);
             }
@@ -61,7 +61,7 @@ namespace TestDataGeneratorTests
             Person person;
             for (int i = 0; i < 100; i++)
             {
-                person = testDataGenerator.GenerateRandonPerson();
+                person = testDataGenerator.GenerateRandomPerson();
                 TestHelpper.PrintPersonData(person);
             }
             Assert.Pass();
@@ -90,21 +90,21 @@ namespace TestDataGeneratorTests
             TestContext.WriteLine("Randomized sex");
             for (int i = 0; i < 10; i++)
             {
-                person = testDataGenerator.GenerateRandonPerson(sex : Person.Sex.Randomize);
+                person = testDataGenerator.GenerateRandomPerson(sex : Person.Sex.Randomize);
                 TestHelpper.PrintPersonData(person);
             }
 
             TestContext.WriteLine("\nMales");
             for (int i = 0; i < 10; i++)
             {
-                person = testDataGenerator.GenerateRandonPerson(sex: Person.Sex.Male);
+                person = testDataGenerator.GenerateRandomPerson(sex: Person.Sex.Male);
                 TestHelpper.PrintPersonData(person);
             }
 
             TestContext.WriteLine("\n Females");
             for (int i = 0; i < 10; i++)
             {
-                person = testDataGenerator.GenerateRandonPerson(sex: Person.Sex.Female);
+                person = testDataGenerator.GenerateRandomPerson(sex: Person.Sex.Female);
                 TestHelpper.PrintPersonData(person);
             }
         }
@@ -123,14 +123,14 @@ namespace TestDataGeneratorTests
         [Test]
         public void GetRandomPersonWithRandomAge()
         {
-            Person rndPerson = testDataGenerator.GenerateRandonPerson(age:0);
+            Person rndPerson = testDataGenerator.GenerateRandomPerson(age:0);
             TestHelpper.PrintPersonData(rndPerson);
             Assert.IsTrue(rndPerson.age > 0);
         }
 
         public void GetRandomPersonWithAge()
         {
-            Person rndPerson = testDataGenerator.GenerateRandonPerson(age: 66);
+            Person rndPerson = testDataGenerator.GenerateRandomPerson(age: 66);
             TestHelpper.PrintPersonData(rndPerson);
             Assert.IsTrue(rndPerson.age == 66);
         }

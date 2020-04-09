@@ -20,10 +20,10 @@ namespace TestDataGeneratorTests
         public void GeneratePersonWithTemplateFirstName()
         {
             Person templatePerson = new Person();
-            templatePerson.firtstName = "Heikki";
-            Person people = testDataGenerator.GenerateRandonPerson(templatePerson);
+            templatePerson.firstName = "Heikki";
+            Person people = testDataGenerator.GenerateRandomPerson(templatePerson);
             TestHelpper.PrintPersonData(people);
-            Assert.IsTrue(people.firtstName == "Heikki");
+            Assert.IsTrue(people.firstName == "Heikki");
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace TestDataGeneratorTests
         {
             Person templatePerson = new Person();
             templatePerson.lastName = "Mustaine";
-            Person people = testDataGenerator.GenerateRandonPerson(templatePerson);
+            Person people = testDataGenerator.GenerateRandomPerson(templatePerson);
             TestHelpper.PrintPersonData(people);
             Assert.IsTrue(people.lastName == "Mustaine");
         }
@@ -41,7 +41,7 @@ namespace TestDataGeneratorTests
         {
             Person templatePerson = new Person();
             templatePerson.sex = Person.Sex.Male;
-            Person people = testDataGenerator.GenerateRandonPerson(templatePerson);
+            Person people = testDataGenerator.GenerateRandomPerson(templatePerson);
             TestHelpper.PrintPersonData(people);
             Assert.IsTrue(people.sex == Person.Sex.Male);
         }
@@ -51,7 +51,7 @@ namespace TestDataGeneratorTests
         {
             Person templatePerson = new Person();
             templatePerson.age = 88;
-            Person people = testDataGenerator.GenerateRandonPerson(templatePerson);
+            Person people = testDataGenerator.GenerateRandomPerson(templatePerson);
             TestHelpper.PrintPersonData(people);
             Assert.IsTrue(people.age == 88);
         }

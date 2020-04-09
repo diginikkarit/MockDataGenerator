@@ -6,7 +6,7 @@ namespace TestDataGeneratorLibrary
 {
     public class Person
     {
-        public string firtstName { get; set; }
+        public string firstName { get; set; }
         public string lastName { get; set; }
         public Sex sex { get; set; }
 

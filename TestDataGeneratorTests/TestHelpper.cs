@@ -11,7 +11,7 @@ namespace TestDataGeneratorTests
 
         static public void PrintPersonData(Person person)
         {
-            TestContext.WriteLine($"Name : {person.firtstName} {person.lastName}");
+            TestContext.WriteLine($"Name : {person.firstName} {person.lastName}");
             TestContext.WriteLine($"Sex: {person.sex}");
             TestContext.WriteLine($"Age: {person.age}");
         }
