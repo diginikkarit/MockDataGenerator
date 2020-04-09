@@ -49,7 +49,7 @@ namespace TestDataGeneratorTests
             {
                 person = testDataGenerator.GenerateRandonPerson(lastName: "TestLastName");
                 people.Add(person);
-                PrintPersonData(person);
+                TestHelpper.PrintPersonData(person);
             }
             Assert.IsTrue(people.Count == 50);
         }
@@ -62,7 +62,7 @@ namespace TestDataGeneratorTests
             for (int i = 0; i < 100; i++)
             {
                 person = testDataGenerator.GenerateRandonPerson();
-                PrintPersonData(person);
+                TestHelpper.PrintPersonData(person);
             }
             Assert.Pass();
         }
@@ -73,28 +73,68 @@ namespace TestDataGeneratorTests
             List<Person> people = testDataGenerator.GetListOfRandomPersons(100);
             foreach (Person person in people)
             {
-                PrintPersonData(person);
+                TestHelpper.PrintPersonData(person);
             }
 
             Assert.IsTrue(people.Count == 100);
         }
+
+     
+
+
+        [Test]
+        public void GenerateRandomPersonWithGenderMale()
+        {
+            Person person;
+            
+            TestContext.WriteLine("Randomized sex");
+            for (int i = 0; i < 10; i++)
+            {
+                person = testDataGenerator.GenerateRandonPerson(sex : Person.Sex.Randomize);
+                TestHelpper.PrintPersonData(person);
+            }
+
+            TestContext.WriteLine("\nMales");
+            for (int i = 0; i < 10; i++)
+            {
+                person = testDataGenerator.GenerateRandonPerson(sex: Person.Sex.Male);
+                TestHelpper.PrintPersonData(person);
+            }
+
+            TestContext.WriteLine("\n Females");
+            for (int i = 0; i < 10; i++)
+            {
+                person = testDataGenerator.GenerateRandonPerson(sex: Person.Sex.Female);
+                TestHelpper.PrintPersonData(person);
+            }
+        }
+
 
         [Test]
         public void GetRandomFromIListTest()
         {
             List<Person> people = testDataGenerator.GetListOfRandomPersons(100);
             Person rndPerson = testDataGenerator.GetRandomFromIList(people);
-            PrintPersonData(rndPerson);
+            TestHelpper.PrintPersonData(rndPerson);
 
             Assert.IsTrue(rndPerson != null && people.Count == 100);
         }
 
-        public void PrintPersonData(Person person)
+        [Test]
+        public void GetRandomPersonWithRandomAge()
         {
-            TestContext.WriteLine($"Name : {person.firtstName} {person.lastName}");
-            TestContext.WriteLine($"Sex: {person.sex}");
-            TestContext.WriteLine($"Age: {person.age}");
+            Person rndPerson = testDataGenerator.GenerateRandonPerson(age:0);
+            TestHelpper.PrintPersonData(rndPerson);
+            Assert.IsTrue(rndPerson.age > 0);
         }
+
+        public void GetRandomPersonWithAge()
+        {
+            Person rndPerson = testDataGenerator.GenerateRandonPerson(age: 66);
+            TestHelpper.PrintPersonData(rndPerson);
+            Assert.IsTrue(rndPerson.age == 66);
+        }
+
 
     }
 }

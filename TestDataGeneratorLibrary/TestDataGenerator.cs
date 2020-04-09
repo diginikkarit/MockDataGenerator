@@ -6,15 +6,29 @@ namespace TestDataGeneratorLibrary
 {
     public class TestDataGenerator
     {
+        public Person GenerateRandonPerson(Person templatePerson)
+        {
+            return GenerateRandonPerson(
+                fisrtName: templatePerson.firtstName,
+                lastName: templatePerson.lastName,
+                sex: templatePerson.sex,
+                age: templatePerson.age
+                );
+        }
 
-
-        public Person GenerateRandonPerson(string fisrtName = null, string lastName = null)
+        public Person GenerateRandonPerson(string fisrtName = null, string lastName = null, Person.Sex sex=Person.Sex.Randomize, int age=0)
         {
             Person person = new Person();
-            person.sex = GetRandomSex();
+            if(sex == Person.Sex.Randomize)
+            {
+               sex = GetRandomSex();
+            }
+
+            person.sex = sex;
+
             if (fisrtName == null)
             {
-                if(person.sex == Person.Sex.male)
+                if(person.sex == Person.Sex.Male)
                 {
                     fisrtName = GetRandomFromIList(Person.firstNamesMale);
                 }
@@ -32,8 +46,11 @@ namespace TestDataGeneratorLibrary
             }
 
             person.lastName = lastName;
-
-            person.age = GetRandomAge();
+            if(age == 0)
+            {
+                age = GetRandomAge();
+            }
+            person.age = age;
             return person;
         }
 
@@ -53,7 +70,8 @@ namespace TestDataGeneratorLibrary
         public Person.Sex GetRandomSex()
         {
             Random rnd = new Random();
-            int rndNumber = rnd.Next(0,2);
+            //0 is randomize -> 1,2
+            int rndNumber = rnd.Next(1,3);
             return (Person.Sex)rndNumber;
         }
 
@@ -70,6 +88,16 @@ namespace TestDataGeneratorLibrary
             for (int i = 0; i < amount; i++)
             {
                 people.Add(GenerateRandonPerson());
+            }
+            return people;
+        }
+
+        public List<Person> GetListOfRandomPersons(int amount, Person templaterPerson)
+        {
+            List<Person> people = new List<Person>();
+            for (int i = 0; i < amount; i++)
+            {
+                people.Add(GenerateRandonPerson(templaterPerson));
             }
             return people;
         }
