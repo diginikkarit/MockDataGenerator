@@ -14,8 +14,8 @@ namespace TestDataGeneratorLibrary
         public bool alive { get; set; }
 
         public enum Sex { Randomize = 0, Male ,  Female };
-        public static string[] firstNamesMale = { "John", "Ben", "Alex", "Ronald", "Emmet", "Gary" };
-        public static string[] firstNameFemales = { "Sally", "Madison", "Ella", "Barbie", "Jenny", "Elvira" };
+        public static string[] firstNamesMale = { "John", "Ben", "Alex", "Ronald", "Emmet", "Gary","Brad","Bernard" };
+        public static string[] firstNameFemales = { "Sally", "Madison", "Ella", "Barbie", "Jenny", "Elvira","Bella","Brianna" };
         public static string[] lastNames = { "Mustaine", "Ewing", "Brady", "mcLeod", "Simpson", "Parker", "Banner" };
     }
 }
