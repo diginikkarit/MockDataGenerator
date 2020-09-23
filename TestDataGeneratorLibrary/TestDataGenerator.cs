@@ -67,6 +67,13 @@ namespace TestDataGeneratorLibrary
             return array[rndNumber];
         }
 
+        //public T GetRandomFromIList<T>(List<T> list)
+        //{
+        //    Random rnd = new Random();
+        //    int rndNumber = rnd.Next(0, list.Count);
+        //    return list[rndNumber];
+        //}
+
         public Person.Sex GetRandomSex()
         {
             Random rnd = new Random();
