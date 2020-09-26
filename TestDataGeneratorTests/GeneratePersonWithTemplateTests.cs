@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
-using TestDataGeneratorLibrary;
+using PersonDataGeneratorLibrary;
 
-namespace TestDataGeneratorTests
+namespace PersonDataGeneratorTests
 {
     public class GeneratePersonWithTemplateTests
     {
 
-        TestDataGenerator testDataGenerator;
+        PersonDataGenerator testDataGenerator;
         [SetUp]
         public void SetUp()
         {
-            testDataGenerator = new TestDataGenerator();
+            testDataGenerator = new PersonDataGenerator();
         }
 
         [Test]
@@ -69,6 +69,29 @@ namespace TestDataGeneratorTests
                 TestHelpper.PrintPersonData(person);
             }
             Assert.IsTrue(people.Count == 100);
+        }
+
+        [Test]
+        public void GeneratePersonListWithTemplateAliveTest()
+        {
+            Person templatePerson = new Person();
+            templatePerson.isAlive = true;
+            templatePerson.lastName = "Mustonen";
+            List<Person> people = testDataGenerator.GetListOfRandomPersons(100, templatePerson);
+            
+            Assert.IsTrue(people.FindAll(x => x.isAlive == true).Count == 100);
+        }
+
+
+        [Test]
+        public void GeneratePersonListWithTemplateIsDeadTest()
+        {
+            Person templatePerson = new Person();
+            templatePerson.isAlive = false;
+            templatePerson.lastName = "Mustonen";
+            List<Person> people = testDataGenerator.GetListOfRandomPersons(100, templatePerson);
+
+            Assert.IsTrue(people.FindAll(x => x.isAlive == false).Count == 100);
         }
 
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TestDataGeneratorLibrary
+namespace PersonDataGeneratorLibrary
 {
     public class Person
     {
@@ -11,11 +11,16 @@ namespace TestDataGeneratorLibrary
         public Sex sex { get; set; }
 
         public int age { get; set; }
-        public bool alive { get; set; }
+        public bool? isAlive { get; set; }
 
         public enum Sex { Randomize = 0, Male ,  Female };
-        public static string[] firstNamesMale = { "John", "Ben", "Alex", "Ronald", "Emmet", "Gary","Brad","Bernard" };
-        public static string[] firstNameFemales = { "Sally", "Madison", "Ella", "Barbie", "Jenny", "Elvira","Bella","Brianna","Carol" };
-        public static string[] lastNames = { "Mustaine", "Ewing", "Brady", "mcLeod", "Simpson", "Parker", "Banner" };
+
+        /// <summary>
+        /// isAlive : bool attribute is nullable and null by default.
+        /// </summary>
+        public Person()
+        {
+            isAlive = null;
+        }
     }
 }

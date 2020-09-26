@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
-using TestDataGeneratorLibrary;
+using PersonDataGeneratorLibrary;
 
-namespace TestDataGeneratorTests
+namespace PersonDataGeneratorTests
 {
-
-    public class TestDataGeneratorTests
+    public class PersonDataGeneratorTests
     {
-        public TestDataGenerator testDataGenerator;
+        public PersonDataGenerator testDataGenerator;
+        private static string[] testNamesArray = { "Heikki", "Pertti", "Jaakkima", "Kalevi" };
         [SetUp]
         public void SetUp()
         {
-            testDataGenerator = new TestDataGenerator();
+            testDataGenerator = new PersonDataGenerator();
+           
         }
         [Test]
         public void TestDataGeneratorBasicTest()
         {
 
-           TestDataGenerator tdg = new TestDataGenerator();
+           PersonDataGenerator tdg = new PersonDataGenerator();
             Assert.IsNotNull(tdg);
         }
         [Test]
@@ -54,7 +55,6 @@ namespace TestDataGeneratorTests
             Assert.IsTrue(people.Count == 50);
         }
 
-
         [Test]
         public void GenerateNumerOfRandomPersons()
         {
@@ -78,9 +78,6 @@ namespace TestDataGeneratorTests
 
             Assert.IsTrue(people.Count == 100);
         }
-
-     
-
 
         [Test]
         public void GenerateRandomPersonWithGenderMale()
@@ -111,13 +108,22 @@ namespace TestDataGeneratorTests
 
 
         [Test]
-        public void GetRandomFromIListTest()
+        public void GetRandomFromICollectionListTest()
         {
             List<Person> people = testDataGenerator.GetListOfRandomPersons(100);
-            Person rndPerson = testDataGenerator.GetRandomFromIList(people);
+            Person rndPerson = PersonDataGenerator.GetRandomFromCollection(people);
             TestHelpper.PrintPersonData(rndPerson);
 
             Assert.IsTrue(rndPerson != null && people.Count == 100);
+        }
+
+        [Test]
+        public void GetRandomFromICollectionArrayTest()
+        {
+           
+            string name = PersonDataGenerator.GetRandomFromCollection(testNamesArray);
+            TestContext.WriteLine("name was : " + name);
+            Assert.IsTrue(name != null);
         }
 
         [Test]
