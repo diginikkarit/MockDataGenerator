@@ -1,7 +1,31 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Description>Generates lists of people with names, age, sex and isAlive boolean.
+Design to be used where ever test data is needed. LINQ practice etc.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.5</Version>
+    <Authors>Heikki Mustonen</Authors>
+    <Company>Diginikkarit</Company>
+    <PackageId>DiginikkaritTestDataGeneratorLibrary</PackageId>
+    <Copyright>Heikki Mustonen</Copyright>
+    <PackageIcon>DiginikkaritLogoCropped.jpg</PackageIcon>
+    <PackageReleaseNotes>GetRandomFromIList is now static in PersonDataGenerator
+Person class has a isAlive attribute fixed.</PackageReleaseNotes>
+    <AssemblyName>PersonDataGenerator</AssemblyName>
+    <RootNamespace>PersonDataGenerator</RootNamespace>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\pophe\source\repos\TestDataGenerator\TestDataGeneratorLibrary\PersonDataGenerator.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Desktop\Diginikkarit\DiginikkaritLogoCropped.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

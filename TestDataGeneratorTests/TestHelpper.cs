@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
-using TestDataGeneratorLibrary;
+using NUnit.Framework.Internal;
+using PersonDataGeneratorLibrary;
 
-namespace TestDataGeneratorTests
+namespace PersonDataGeneratorTests
 {
     public class TestHelpper
     {
@@ -14,6 +15,29 @@ namespace TestDataGeneratorTests
             TestContext.WriteLine($"Name : {person.firstName} {person.lastName}");
             TestContext.WriteLine($"Sex: {person.sex}");
             TestContext.WriteLine($"Age: {person.age}");
+            TestContext.WriteLine($"Alive: {person.isAlive}");
+        }
+
+        static public void PrintPersonDataGeneratorLists(PersonDataGenerator personDataGenerator)
+        {
+            TestContext.WriteLine($"Occupations : {PrintICollection(personDataGenerator.occupations)}");
+            TestContext.WriteLine($"Male first names : {PrintICollection(personDataGenerator.firstNamesMale)}");
+            TestContext.WriteLine($"Female fisrt names : {PrintICollection(personDataGenerator.firstNamesFemale)}");
+            TestContext.WriteLine($"Last names : {PrintICollection(personDataGenerator.lastNames)}");
+        }
+
+        static private string PrintICollection(ICollection<string> collection)
+        {
+            string msg = "";
+            foreach (string item in collection)
+            {
+                msg += item.ToString() + ",";
+            }
+
+            //Remove last ','
+            msg = msg.Substring(0, msg.Length - 1);
+
+            return msg;
         }
 
     }

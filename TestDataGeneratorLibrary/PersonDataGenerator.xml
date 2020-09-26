@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PersonDataGenerator</name>
+    </assembly>
+    <members>
+        <member name="M:PersonDataGeneratorLibrary.Person.#ctor">
+            <summary>
+            isAlive : bool attribute is nullable and null by default.
+            </summary>
+        </member>
+        <member name="F:PersonDataGeneratorLibrary.PersonDataGenerator.firstNamesMale">
+            <summary>
+            A pool of male first names which this instance of PersonDataGenerator can use.
+            Replace with your own names if needed.
+            </summary>
+        </member>
+        <member name="F:PersonDataGeneratorLibrary.PersonDataGenerator.firstNamesFemale">
+            <summary>
+            A pool of female first names which this instance of PersonDataGenerator can use.
+            Replace with your own names if needed.
+            </summary>
+        </member>
+        <member name="F:PersonDataGeneratorLibrary.PersonDataGenerator.lastNames">
+            <summary>
+            A pool of lastnames which this instance of PersonDataGenerator can use.
+            Replace with your own names if needed.
+            </summary>
+        </member>
+        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GenerateRandomPerson(PersonDataGeneratorLibrary.Person)">
+            <summary>
+            Generates one randomized object of Person class. Uses names from name pools, age is between 1-99, isAlive is true or false.
+            </summary>
+            <param name="templatePerson">
+            You can use Person class object as a template. Example : Only last name is set in Person, all generated Person objects have the same last name. 
+            </param>
+            <returns>Person class object with randomized names, age etc.</returns>
+        </member>
+        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GenerateRandomPerson(System.String,System.String,PersonDataGeneratorLibrary.Person.Sex,System.Int32,System.Nullable{System.Boolean})">
+            <summary>
+            Fill out the parameters that you want to set. Everything else will be randomized.
+            </summary>
+            <param name="firstName">If not provided, will be random.</param>
+            <param name="lastName">If not provided, will be random.</param>
+            <param name="sex">If not provided, will be random.</param>
+            <param name="age">If not provided, will be random.</param>
+            <param name="isAlive">If not provided, will be random.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GetRandomFromCollection``1(System.Collections.Generic.ICollection{``0})">
+            <summary>
+            Return random object from ICollection
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="array"></param>
+        </member>
+        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GetRandomSex">
+            <summary>
+            
+            </summary>
+            <returns>Sex enum Male or Female</returns>
+        </member>
+        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GetRandomAge(System.Int32,System.Int32)">
+            <summary>
+            Returns an int between minValue and maxValue
+            Defaults to 1-99 if no values are given.
+            </summary>
+            <param name="minValue">Defaults to 1</param>
+            <param name="maxValue">Defaults to 100</param>
+            <returns></returns>
+        </member>
+        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GetListOfRandomPersons(System.Int32)">
+            <summary>
+            Returns a List of Randomly generated Person class objects.
+            </summary>
+            <param name="amount">Number to be generated.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GetListOfRandomPersons(System.Int32,PersonDataGeneratorLibrary.Person)">
+            <summary>
+            Returns a List of Randomly generated Person class objects.
+            </summary>
+            <param name="amount">Number to be generated.</param>
+            <param name="templatePerson">All generated object will be generated using this object as template.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
