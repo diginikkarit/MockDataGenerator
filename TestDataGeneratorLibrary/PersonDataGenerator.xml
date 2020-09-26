@@ -36,6 +36,15 @@
             </param>
             <returns>Person class object with randomized names, age etc.</returns>
         </member>
+        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.#ctor(System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            If Parameter is empty, PersonDataGenerator uses default pool.
+            </summary>
+            <param name="occupations"></param>
+            <param name="firstNamesMale"></param>
+            <param name="firstNamesFemale"></param>
+            <param name="lastNames"></param>
+        </member>
         <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GenerateRandomPerson(System.String,System.String,PersonDataGeneratorLibrary.Person.Sex,System.Int32,System.Nullable{System.Boolean})">
             <summary>
             Fill out the parameters that you want to set. Everything else will be randomized.

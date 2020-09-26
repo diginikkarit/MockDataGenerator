@@ -5,16 +5,19 @@
     <Description>Generates lists of people with names, age, sex and isAlive boolean.
 Design to be used where ever test data is needed. LINQ practice etc.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.5</Version>
+    <Version>1.0.8</Version>
     <Authors>Heikki Mustonen</Authors>
     <Company>Diginikkarit</Company>
-    <PackageId>DiginikkaritTestDataGeneratorLibrary</PackageId>
+    <PackageId>DiginikkaritPersonDataGeneratorLibrary</PackageId>
     <Copyright>Heikki Mustonen</Copyright>
     <PackageIcon>DiginikkaritLogoCropped.jpg</PackageIcon>
     <PackageReleaseNotes>GetRandomFromIList is now static in PersonDataGenerator
 Person class has a isAlive attribute fixed.</PackageReleaseNotes>
     <AssemblyName>PersonDataGenerator</AssemblyName>
     <RootNamespace>PersonDataGenerator</RootNamespace>
+    <RepositoryUrl>https://github.com/diginikkarit/PersonDataGenerator</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Data,generator,Personal,fake</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
