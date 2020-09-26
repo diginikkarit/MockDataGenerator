@@ -1,4 +1,4 @@
-# PersonDataGenetorLibrary
+# PersonDataGeneratorLibrary
 With this light C# library you can generate data for testing and practising purposes.
 You can quicky generate personal data collections with randomised names, ages, occupations etc.
 Designed for there and similair purposes:
