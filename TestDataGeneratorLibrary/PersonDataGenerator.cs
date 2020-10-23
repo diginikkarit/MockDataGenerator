@@ -42,7 +42,8 @@ namespace PersonDataGeneratorLibrary
                 lastName: templatePerson.lastName,
                 sex: templatePerson.sex,
                 age: templatePerson.age,
-                isAlive: templatePerson.isAlive
+                isAlive: templatePerson.isAlive,
+                occupation: templatePerson.occupation
                 );
         }
 
@@ -81,8 +82,9 @@ namespace PersonDataGeneratorLibrary
         /// <param name="sex">If not provided, will be random.</param>
         /// <param name="age">If not provided, will be random.</param>
         /// <param name="isAlive">If not provided, will be random.</param>
+        /// <param name="occupation"> --- not defined ---</param>
         /// <returns></returns>
-        public Person GenerateRandomPerson(string firstName = null, string lastName = null, Person.Sex sex = Person.Sex.Randomize, int age = 0, bool? isAlive = null)
+        public Person GenerateRandomPerson(string firstName = null, string lastName = null, Person.Sex sex = Person.Sex.Randomize, int age = 0, bool? isAlive = null,string occupation = null)
         {
             Person person = new Person();
             if (sex == Person.Sex.Randomize)
@@ -123,6 +125,12 @@ namespace PersonDataGeneratorLibrary
             if (person.isAlive == null)
             {
                 person.isAlive = rndGenerator.Next(0, 2) == 1;
+            }
+
+            person.occupation = occupation;
+            if (String.IsNullOrEmpty(person.occupation))
+            {
+                person.occupation = GetRandomFromCollection(this.occupations);
             }
 
             return person;

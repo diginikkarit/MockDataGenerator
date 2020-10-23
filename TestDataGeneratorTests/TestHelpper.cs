@@ -16,9 +16,19 @@ namespace PersonDataGeneratorTests
             TestContext.WriteLine($"Sex: {person.sex}");
             TestContext.WriteLine($"Age: {person.age}");
             TestContext.WriteLine($"Alive: {person.isAlive}");
+            TestContext.WriteLine($"Occupation: {person.occupation}");
         }
 
-        static public void PrintPersonDataGeneratorLists(PersonDataGenerator personDataGenerator)
+        static public void PrintPersonDataList(List<Person> list)
+        {
+            foreach (Person person in list)
+            {
+                PrintPersonData(person);
+                TestContext.WriteLine();
+            }
+        }
+
+        static public void PrintPersonDataGeneratorDataLists(PersonDataGenerator personDataGenerator)
         {
             TestContext.WriteLine($"Occupations : {PrintICollection(personDataGenerator.occupations)}");
             TestContext.WriteLine($"Male first names : {PrintICollection(personDataGenerator.firstNamesMale)}");

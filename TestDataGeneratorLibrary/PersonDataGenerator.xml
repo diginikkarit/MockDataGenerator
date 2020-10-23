@@ -6,7 +6,7 @@
     <members>
         <member name="M:PersonDataGeneratorLibrary.Person.#ctor">
             <summary>
-            isAlive : bool attribute is nullable and null by default.
+            Instantiate a person! great!
             </summary>
         </member>
         <member name="F:PersonDataGeneratorLibrary.PersonDataGenerator.firstNamesMale">
@@ -45,7 +45,7 @@
             <param name="firstNamesFemale"></param>
             <param name="lastNames"></param>
         </member>
-        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GenerateRandomPerson(System.String,System.String,PersonDataGeneratorLibrary.Person.Sex,System.Int32,System.Nullable{System.Boolean})">
+        <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GenerateRandomPerson(System.String,System.String,PersonDataGeneratorLibrary.Person.Sex,System.Int32,System.Nullable{System.Boolean},System.String)">
             <summary>
             Fill out the parameters that you want to set. Everything else will be randomized.
             </summary>
@@ -54,6 +54,7 @@
             <param name="sex">If not provided, will be random.</param>
             <param name="age">If not provided, will be random.</param>
             <param name="isAlive">If not provided, will be random.</param>
+            <param name="occupation"> --- not defined ---</param>
             <returns></returns>
         </member>
         <member name="M:PersonDataGeneratorLibrary.PersonDataGenerator.GetRandomFromCollection``1(System.Collections.Generic.ICollection{``0})">

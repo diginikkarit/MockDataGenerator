@@ -25,7 +25,7 @@ namespace TestDataGeneratorTests
         public void PersonDataGeneratorConstructorTestWithOccupationList(ICollection<string> occupations, ICollection<string> firstNamesMale,ICollection<string> firstNamesFelmale, ICollection<string> lastNames)
         {
             PersonDataGenerator pdg = new PersonDataGenerator(occupations, firstNamesMale, firstNamesFelmale,lastNames);
-            TestHelpper.PrintPersonDataGeneratorLists(pdg);
+            TestHelpper.PrintPersonDataGeneratorDataLists(pdg);
             Assert.IsTrue(pdg.occupations != null && pdg.firstNamesMale != null && pdg.firstNamesFemale != null && pdg.lastNames != null); 
         }
     }

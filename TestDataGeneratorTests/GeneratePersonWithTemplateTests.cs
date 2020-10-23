@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NuGet.Frameworks;
 using NUnit.Framework;
 using PersonDataGeneratorLibrary;
 
@@ -95,5 +96,24 @@ namespace PersonDataGeneratorTests
         }
 
 
+        [Test]
+        public void GeneratePersonListWithTemplateHasOccupation()
+        {
+            Person templatePerson = new Person();
+            templatePerson.lastName = "Jackson";
+            templatePerson.occupation = "Soccer player";
+            List<Person> people = testDataGenerator.GetListOfRandomPersons(100, templatePerson);
+            Assert.IsTrue(people.FindAll(x => x.occupation == "Soccer player").Count == 100);
+        }
+
+        [Test]
+        public void GeneratePersonListWithTemplateHasRandomOccupation()
+        {
+            Person templatePerson = new Person();
+            templatePerson.lastName = "Jackson";
+            templatePerson.occupation = "";
+            List<Person> people = testDataGenerator.GetListOfRandomPersons(100, templatePerson);
+            TestHelpper.PrintPersonDataList(people);
+        }
     }
 }
